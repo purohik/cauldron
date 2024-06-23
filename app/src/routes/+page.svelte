@@ -1,5 +1,6 @@
 <script>
   import '@material/web/button/outlined-button.js';
+  import Datepicker from './Datepicker.svelte';
   import {MONTHS} from '../lib/constants.js';
   import * as Dates from '../lib/dates.js';
 
@@ -30,7 +31,9 @@
   }
 </script>
 
-<div>
+<Datepicker />
+
+<!-- <div>
   <md-outlined-button on:click={() => updateDate('day', -1)}> - </md-outlined-button>
   <span>{date}</span>
   <md-outlined-button on:click={() => updateDate('day', 1)}> + </md-outlined-button>
@@ -53,4 +56,4 @@
 </div>
 <div>
   <md-outlined-button>Go</md-outlined-button>
-</div>
+</div> -->
