@@ -1,4 +1,5 @@
 <script>
+  import '@material/web/button/outlined-button.js';
   import {MONTHS} from '../lib/constants.js';
   import * as Dates from '../lib/dates.js';
 
@@ -30,26 +31,26 @@
 </script>
 
 <div>
-  <button on:click={() => updateDate('day', -1)}>-</button>
+  <md-outlined-button on:click={() => updateDate('day', -1)}> - </md-outlined-button>
   <span>{date}</span>
-  <button on:click={() => updateDate('day', 1)}>+</button>
+  <md-outlined-button on:click={() => updateDate('day', 1)}> + </md-outlined-button>
 </div>
 
 <div>
-  <button on:click={() => updateDate('month', -1)}>-</button>
+  <md-outlined-button on:click={() => updateDate('month', -1)}> - </md-outlined-button>
   <span>{monthName}</span>
-  <button on:click={() => updateDate('month', 1)}>+</button>
+  <md-outlined-button on:click={() => updateDate('month', 1)}> + </md-outlined-button>
 </div>
 
 <div>
-  <button on:click={() => updateDate('year', -1)}>-</button>
+  <md-outlined-button on:click={() => updateDate('year', -1)}> - </md-outlined-button>
   <span>{year}</span>
-  <button on:click={() => updateDate('year', 1)}>+</button>
+  <md-outlined-button on:click={() => updateDate('year', 1)}> + </md-outlined-button>
 </div>
 
 <div>
   <span>Total days passed: {daysPassed}</span>
 </div>
 <div>
-  <button>Go</button>
+  <md-outlined-button>Go</md-outlined-button>
 </div>
