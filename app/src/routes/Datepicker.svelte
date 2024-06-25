@@ -1,58 +1,40 @@
 <script>
-  import { MONTHS } from "../lib/constants";
-  import '@material/web/button/filled-tonal-button.js';
+  import { Day } from '../classes/day';
+  import Month from './Month.svelte';
 
-  
-  let today = new Date();
-  let date = today.getDate();
-  let month = today.getMonth() + 1;
-  let year = today.getFullYear();
-  
-  // TODO: figure out how to make this dynamic based on the selected month
-  let daysInCurrentMonth = new Date(year, month, 0).getDate();
-  let daysInMonth = [...Array(daysInCurrentMonth).keys()].map(i => i + 1);
-  let allYears = [...Array(100).keys()].map(i => year - 99 + i);
+  let selectedDate = undefined;
+  let month;
+  let year;
 
-  function handleClick(selectedYear) {
-    year = selectedYear;
-    console.log("Selected year is " + selectedYear);
+  function updateDate(e) {
+    selectedDate = new Date(e.target.value);
+    // console.log("selected date", selectedDate);
+    month = selectedDate.getMonth() + 1;
+    year = selectedDate.getFullYear();
+    console.log("Updated month and year", month, year);
   }
 
 </script>
 
 <style>
   .datepicker {
-    background: #ddd;
     display: flex;
+    justify-content: center;
   }
 
-  .scroll {
-    height: 8em;
-    width: 4em;
-    overflow: scroll;
-  }
-
-  .scroll::-webkit-scrollbar {
-    display: none;
+  .time-grid {
+    display: flex;
+    justify-content: center;
   }
 </style>
 
 <div class="datepicker">
-  <div class="day scroll">
-    {#each daysInMonth as day}
-      <div>{day}</div>
-    {/each}
-  </div>
-
-  <div class="scroll">
-    {#each MONTHS as month}
-      <div>{month}</div>
-    {/each}
-  </div>
-
-  <div class="scroll">
-    {#each allYears as year}
-      <button on:click={() => handleClick(year)}>{year}</button>
-    {/each}
-  </div>
+  <input type="date" on:input={(e) => updateDate(e)}/>
+  <button>Go</button>
 </div>
+
+{#if selectedDate !== undefined}
+  <div class="time-grid">
+    <Month {month} {year} />
+  </div>
+{/if}
