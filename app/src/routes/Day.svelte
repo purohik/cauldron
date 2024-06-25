@@ -25,7 +25,7 @@
   }
 
   .grey-dot {
-    background-color: rgba(103, 103, 103, 0.238);
+    background-color: rgba(103, 103, 103, 0);
     height: 5em;
     width: 5em;
     border-radius: 50%;

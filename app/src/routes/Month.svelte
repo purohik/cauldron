@@ -43,13 +43,14 @@
 <style>
   .month {
     display: flex;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    margin: 1em;
   }
 
   .week {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
 
   .day {}

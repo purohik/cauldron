@@ -13,6 +13,8 @@
     console.log("Updated month and year", month, year);
   }
 
+  $: years = [2022, 2023, 2024];
+  $: months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 </script>
 
 <style>
@@ -24,6 +26,8 @@
   .time-grid {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 </style>
 
@@ -34,6 +38,10 @@
 
 {#if selectedDate !== undefined}
   <div class="time-grid">
-    <Month {month} {year} />
+    {#each years as year}
+      {#each months as month}
+        <Month {month} {year} />
+      {/each}
+    {/each}
   </div>
 {/if}
