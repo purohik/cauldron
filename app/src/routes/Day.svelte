@@ -1,47 +1,56 @@
 <script>
   import '@material/web/button/filled-button.js';
+  import {DAY_PLACEHOLDER} from '../lib/constants';
 
   export let label = '';
+  export let date = new Date();
 
-  function onclick(e) {
+  let description = '';
+
+  function onClick(e) {
     e.target.style.backgroundColor = 'red';
+  }
+
+  function getDateId() {
+    return date.getFullYear() + date.getMonth() + date.getDate();
+  }
+
+  function onHover(e) {
+    e.target.style.backgroundColor = 'grey';
+  }
+
+  function onMouseOut(e) {
+    e.target.style.backgroundColor = 'black';
   }
 </script>
 
 <style>
-  .black-dot {
-    background-color: rgba(0, 0, 0);
+  .dot {
     height: 5em;
     width: 5em;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.1em;
+    margin: 0.2em;
     font-size: 0.2em;
     padding: 0%;
-    color: white;
     border: none;
   }
 
-  .grey-dot {
-    background-color: rgba(103, 103, 103, 0);
-    height: 5em;
-    width: 5em;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.1em;
-    font-size: 0.2em;
-    padding: 0%;
+  .black {
+    background-color: rgba(0, 0, 0);
     color: white;
-    border: none;
+
+  }
+
+  .grey {
+    background-color: rgba(103, 103, 103, 0);
   }
 </style>
 
-{#if label !== ''}
-  <button class="black-dot" on:click={(e) => onclick(e)}>{label}</button>
+{#if label !== DAY_PLACEHOLDER}
+  <button class="black dot" on:click={(e) => onClick(e)}>{label}</button>
 {:else}
-  <button class="grey-dot">{label}</button>
+  <button class="grey dot">{label}</button>
 {/if}
