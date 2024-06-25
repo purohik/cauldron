@@ -32,28 +32,3 @@
 </script>
 
 <Datepicker />
-
-<!-- <div>
-  <md-outlined-button on:click={() => updateDate('day', -1)}> - </md-outlined-button>
-  <span>{date}</span>
-  <md-outlined-button on:click={() => updateDate('day', 1)}> + </md-outlined-button>
-</div>
-
-<div>
-  <md-outlined-button on:click={() => updateDate('month', -1)}> - </md-outlined-button>
-  <span>{monthName}</span>
-  <md-outlined-button on:click={() => updateDate('month', 1)}> + </md-outlined-button>
-</div>
-
-<div>
-  <md-outlined-button on:click={() => updateDate('year', -1)}> - </md-outlined-button>
-  <span>{year}</span>
-  <md-outlined-button on:click={() => updateDate('year', 1)}> + </md-outlined-button>
-</div>
-
-<div>
-  <span>Total days passed: {daysPassed}</span>
-</div>
-<div>
-  <md-outlined-button>Go</md-outlined-button>
-</div> -->

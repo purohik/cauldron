@@ -1,4 +1,6 @@
 <script>
+  import Day from './Day.svelte';
+
   export let month = 2;
   export let year = 2024;
   
@@ -12,7 +14,7 @@
 
     // Get all the placeholder in first week.
     while (currentDay < firstDate.getDay()) {
-      currentWeek.push('x');
+      currentWeek.push('');
       currentDay += 1;
     }
 
@@ -29,7 +31,7 @@
 
     // Fill all the placeholders in last week.
     while (currentWeek.length > 0 && currentWeek.length < 7) {
-      currentWeek.push('x');
+      currentWeek.push('');
     }
     weekOrder.push(currentWeek);
     return weekOrder;
@@ -50,16 +52,14 @@
     border: 1px solid black;
   }
 
-  .day {
-    margin: 0.1em;
-  }
+  .day {}
 </style>
 
 <div class="month">
   {#each sortedWeeks as week}
     <div class="week">
       {#each week as day}
-        <div class="day">{day}</div>
+        <div class="day"><Day label={day} /></div>
       {/each}
     </div>
   {/each}

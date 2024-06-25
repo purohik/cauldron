@@ -8,7 +8,6 @@
 
   function updateDate(e) {
     selectedDate = new Date(e.target.value);
-    // console.log("selected date", selectedDate);
     month = selectedDate.getMonth() + 1;
     year = selectedDate.getFullYear();
     console.log("Updated month and year", month, year);
